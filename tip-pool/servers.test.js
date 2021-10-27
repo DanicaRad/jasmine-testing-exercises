@@ -1,5 +1,5 @@
 describe("Servers test (with setup and tear-down)", function() {
-  beforeEach(function () {
+  beforeAll(function () {
     // initialization logic
     serverNameInput.value = 'Alice';
   });
@@ -12,6 +12,6 @@ describe("Servers test (with setup and tear-down)", function() {
   });
 
   afterEach(function() {
-    // teardown logic
+    serverNameInput.value = '';
   });
 });
