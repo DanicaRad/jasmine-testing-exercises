@@ -7,17 +7,17 @@ describe('calculateMonthlyPayment() test', () => {
       rate: 5
     }
     expect(calculateMonthlyPayment(values)).toBe('126.60');
-    expect(calculateMonthlyPayment(values)).not.toBeNaN();
+    expect(parseFloat(calculateMonthlyPayment(values))).not.toBeNaN();
   })
 
   it('should return NaN', function() {
     let values = {
-      amount: 0,
+      amount: 'hello',
       years: 0,
-      rate: 0
+      rate: true
     }
-    expect(calculateMonthlyPayment(values)).toBeNaN();
-    expect(calculateMonthlyPayment(values)).toBeFalsy();
+    expect(parseFloat(calculateMonthlyPayment(values))).toBeNaN();
+    expect(parseFloat(calculateMonthlyPayment(values))).toBeFalsy();
   })
 
   it('should calculate big loan', () => {
@@ -40,6 +40,11 @@ describe('testing 2 decimal places', () => {
       rate: 6.6
     }
     expect(calculateMonthlyPayment(values)).toBe('1105.00');
-    expect(calculateMonthlyPayment(values).length).toContain('.')
+    expect(calculateMonthlyPayment(values)).toContain('.');
+    expect((calculateMonthlyPayment(values)).length).toBe(7);
   });
+})
+
+afterEach(() => {
+  values = {};
 })
