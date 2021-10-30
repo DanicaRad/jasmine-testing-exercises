@@ -27,3 +27,12 @@ function appendTd(tr, value) {
 }
 
 // create delete button
+function appendDeleteBtn(tr) {
+  let deleteBtn = document.createElement('td');
+  deleteBtn.innerText = 'X';
+  deleteBtn.id = 'delete';
+
+  tr.append(deleteBtn);
+}
+
+//

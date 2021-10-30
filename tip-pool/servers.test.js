@@ -33,6 +33,7 @@ describe("Servers test (with setup and tear-down)", function() {
 
   afterEach(function() {
     serverId = 0;
+    // serverNameInput.value = '';
     serverTbody.innerHtml = '';
     allServers = {};
   });
