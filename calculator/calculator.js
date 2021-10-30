@@ -53,5 +53,6 @@ function calculateMonthlyPayment(values) {
 function updateMonthly(monthly) {
   const monthlyUI = document.getElementById("monthly-payment");
   monthlyUI.innerText = `$` + monthly;
-  console.log('updateMonthly');
+  console.log('updateMonthly'
+  );
 }

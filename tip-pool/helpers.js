@@ -8,6 +8,7 @@ function sumPaymentTotal(type) {
 
     total += Number(payment[type]);
   }
+  console.log('sumPaymentTotal total', total);
 
   return total;
 }
@@ -24,3 +25,5 @@ function appendTd(tr, value) {
 
   tr.append(newTd);
 }
+
+// create delete button

@@ -1,5 +1,5 @@
 describe("Servers test (with setup and tear-down)", function() {
-  beforeAll(function () {
+  beforeEach(function () {
     // initialization logic
     serverNameInput.value = 'Alice';
   });
@@ -11,7 +11,29 @@ describe("Servers test (with setup and tear-down)", function() {
     expect(allServers['server' + serverId].serverName).toEqual('Alice');
   });
 
-  afterEach(function() {
+  it('should not add a new server on SubmitServerInput() if input is empty', () => {
     serverNameInput.value = '';
+    submitServerInfo();
+
+    expect(Object.keys(allServers).length).toEqual(0);
+  })
+
+  it('should add server names and earnings to the #serverTable', () => {
+
+    submitServerInfo();
+    updateServerTable();
+
+    let table = document.querySelectorAll('#serverTable tbody tr td');
+
+    expect(table[0].innerText).toEqual('Alice');
+    expect(table[1].innerText).toEqual('$0.00');
+
+    expect(table.length).toEqual(2);
+  })
+
+  afterEach(function() {
+    serverId = 0;
+    serverTbody.innerHtml = '';
+    allServers = {};
   });
 });

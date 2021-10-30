@@ -17,28 +17,33 @@ function submitServerInfo(evt) {
   if (serverName !== '') {
     serverId++;
     allServers['server' + serverId] = { serverName };
+    // console.log('#1', allServers['server' + serverId] = { serverName });
 
     updateServerTable();
 
     serverNameInput.value = '';
+    // console.log('#2 submitServerInput', serverNameInput);
   }
 }
 
-// Create table row element and pass to appendTd function with input value
+// // Create table row element and pass to appendTd function with input value
 function updateServerTable() {
   serverTbody.innerHTML = '';
 
   for (let key in allServers) {
     let curServer = allServers[key];
+    // console.log('#1B allServers[key]', key, allServers[key]);
 
     let newTr = document.createElement('tr');
     newTr.setAttribute('id', key);
 
     let tipAverage = sumPaymentTotal('tipAmt') / Object.keys(allServers).length;
+    // console.log('#2B sumPaymentTotal', sumPaymentTotal('tipAmt'))
 
     appendTd(newTr, curServer.serverName);
     appendTd(newTr, '$' + tipAverage.toFixed(2));
 
     serverTbody.append(newTr);
+    // console.log("#3B allServers", allServers);
   }
 }

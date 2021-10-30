@@ -20,6 +20,8 @@ function submitPaymentInfo(evt) {
     paymentId += 1;
 
     allPayments['payment' + paymentId] = curPayment;
+    console.log('#1 allPayments object', allPayments);
+    console.log('#2 curPayment?', allPayments['payment' + paymentId]);
 
     appendPaymentTable(curPayment);
     updateServerTable();
@@ -35,6 +37,8 @@ function submitPaymentInfo(evt) {
 function createCurPayment() {
   let billAmt = billAmtInput.value;
   let tipAmt = tipAmtInput.value;
+  console.log('billAmt', billAmt);
+  console.log('tipAmnt', tipAmt);
 
   if (billAmt === '' || tipAmt === '') return;
 
