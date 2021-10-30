@@ -28,12 +28,12 @@ describe("Servers test (with setup and tear-down)", function() {
     expect(table[0].innerText).toEqual('Alice');
     expect(table[1].innerText).toEqual('$0.00');
 
-    expect(table.length).toEqual(2);
+    expect(table.length).toEqual(3);
   })
 
   afterEach(function() {
     serverId = 0;
-    // serverNameInput.value = '';
+    serverNameInput.value = '';
     serverTbody.innerHtml = '';
     allServers = {};
   });

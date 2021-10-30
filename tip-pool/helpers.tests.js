@@ -29,6 +29,32 @@ describe('helpers test (with setup and teardown)', () => {
         expect(newTr.firstChild.innerHTML).toEqual('test');
       });
 
+      it('should add a delete td to tr on appendDeleteBtn() and delete tr on click', () => {
+          let newTr = document.createElement('tr');
+
+          appendDeleteBtn(newTr);
+          
+          expect(newTr.children.length).toEqual(1);
+          expect(newTr.firstChild.innerText).toEqual('X');
+
+        //   let deleteBtn = newTr.firstChild;
+
+        //   deleteTr(deleteBtn);
+          
+        //   expect(newTr.children.length).toEqual(0);
+      })
+
+      it('should delete tr on click of `x` td', () => {
+          let newTr = document.createElement('tr');
+          appendDeleteBtn(newTr);
+
+          let deleteBtn = newTr.firstElementChild;
+
+          deleteTr(deleteBtn);
+
+          expect(newTr.children.length).toEqual(0);
+      })
+
     afterEach(() => {
         billAmtInput.value = '';
         tipAmtInput.value = '';

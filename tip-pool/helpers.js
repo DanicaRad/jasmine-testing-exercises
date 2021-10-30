@@ -33,6 +33,10 @@ function appendDeleteBtn(tr) {
   deleteBtn.id = 'delete';
 
   tr.append(deleteBtn);
+  deleteBtn.addEventListener('click', deleteTr(deleteBtn));
+
 }
 
-//
+function deleteTr(target) {
+  target.parentElement.remove();
+}
